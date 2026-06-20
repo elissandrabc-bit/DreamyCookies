@@ -7,8 +7,11 @@ Site comercial em PHP para venda de cookies artesanais, desenvolvido para o proj
 - Cardápio com fotos, sabores, descrições e preços
 - Filtro por tipo de cookie (Tradicional, Recheado, Especial)
 - Busca por nome ou descrição
+- Carrinho de compras com total do pedido
 - Cadastro e login de clientes
-- Botão WhatsApp para pedidos: (44) 9 9746-4801
+- Página Nossa História
+- Área administrativa de clientes cadastrados
+- Finalização do pedido via WhatsApp: (44) 9 9746-4801
 - Layout responsivo com Bootstrap e identidade visual da marca
 
 ## Requisitos atendidos (Rubrica)
@@ -24,75 +27,53 @@ Site comercial em PHP para venda de cookies artesanais, desenvolvido para o proj
 
 ```
 DreamyCookies/
-├── index.php           # Cardápio principal
-├── cadastro.php        # Cadastro de clientes
-├── login.php           # Login
-├── logout.php          # Logout
-├── .htaccess           # Segurança (sem listagem)
+├── index.php              # Cardápio principal
+├── carrinho.php           # Carrinho de compras
+├── cadastro.php           # Cadastro de clientes
+├── login.php              # Login
+├── logout.php             # Logout
+├── historia.php           # Nossa História
+├── admin-clientes.php     # Lista de clientes (admin)
 ├── config/
-│   └── database.php    # Conexão com BD na VM
+│   ├── database.example.php
+│   └── admin.example.php
 ├── includes/
-│   ├── functions.php   # Lógica de negócio
-│   └── template.php    # Sistema de templates
-├── templates/          # Layout e páginas
+├── templates/
 ├── assets/
-│   ├── css/style.css
-│   └── img/cookies/    # Fotos dos cookies (você adiciona)
 └── database/
-    ├── schema.sql      # Script do banco
-    ├── DER.md          # Diagrama ER
-    └── setup_usuario.sql
 ```
 
 ## Instalação rápida
 
-### 1. Banco de dados (VM + DBeaver)
+### 1. Configuração local
 
-1. Instale MySQL/MariaDB na VM com IP fixo
-2. No DBeaver, conecte à VM e execute `database/schema.sql`
-3. Execute `database/setup_usuario.sql` para criar o usuário
-4. Anote o IP da VM
-
-### 2. Configurar conexão
-
-Edite `config/database.php` e altere `DB_HOST` para o IP da VM:
-
-```php
-define('DB_HOST', '192.168.1.100'); // IP da sua VM
+```bash
+copy config\database.example.php config\database.php
+copy config\admin.example.php config\admin.php
 ```
 
-### 3. XAMPP (servidor de aplicação)
+Ajuste o IP da VM em `config/database.php`.
 
-1. Copie a pasta `DreamyCookies` para `C:\xampp\htdocs\`
-2. Configure a porta 8080 (veja `docs/CONFIGURACAO_XAMPP.md`)
-3. Configure o DNS local (veja `docs/CONFIGURACAO_DNS.md`)
-4. Acesse: `http://dreamycookies.local:8080`
+### 2. Banco de dados (VM)
 
-### 4. Fotos dos cookies
+1. Importe `database/dreamy_cookies_export.sql` no phpMyAdmin da VM
+2. Execute `database/setup_usuario.sql` e `database/setup_vm_remoto.sql`
 
-Coloque suas fotos em `assets/img/cookies/` com estes nomes:
+### 3. XAMPP
 
-- tradicional-preto.jpg
-- tradicional-branco.jpg
-- brookie.jpg
-- nutella.jpg
-- ovomaltine.jpg
-- pistache.jpg
-- kinder.jpg
-- negresco.jpg
-- red-velvet.jpg
-- banoffe.jpg
-- pringles-nutella.jpg
+1. Copie a pasta para `C:\xampp\htdocs\`
+2. Apache na porta **8080** — veja `docs/CONFIGURACAO_XAMPP.md`
+3. DNS local — veja `docs/CONFIGURACAO_DNS.md`
+4. Acesse: `http://localhost:8080/DreamyCookies/`
 
-Se a foto não existir, um placeholder será exibido automaticamente.
+## Documentação
 
-## Contato WhatsApp
-
-Link: https://wa.me/5544997464801
-
-## Documentação adicional
-
-- [Configuração XAMPP (porta 8080)](docs/CONFIGURACAO_XAMPP.md)
-- [Configuração DNS local](docs/CONFIGURACAO_DNS.md)
+- [Checklist da rubrica](docs/CHECKLIST_RUBRICA.md)
+- [Configuração XAMPP](docs/CONFIGURACAO_XAMPP.md)
+- [Configuração DNS](docs/CONFIGURACAO_DNS.md)
 - [Configuração VM e DBeaver](docs/CONFIGURACAO_VM_DBEAVER.md)
-- [DER - Diagrama Entidade-Relacionamento](database/DER.md)
+- [DER](database/DER.md)
+
+## Repositório
+
+https://github.com/elissandrabc-bit/DreamyCookies
