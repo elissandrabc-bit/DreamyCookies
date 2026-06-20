@@ -1,0 +1,22 @@
+# Desabilitar listagem de diretórios (Sistemas Operacionais e Redes)
+Options -Indexes
+
+# Proteger arquivos sensíveis
+<FilesMatch "^(database\.(php|example\.php)|\.env)$">
+    Require all denied
+</FilesMatch>
+
+# Bloquear acesso direto à pasta config
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^config/ - [F,L]
+    RewriteRule ^includes/ - [F,L]
+    RewriteRule ^templates/ - [F,L]
+    RewriteRule ^database/ - [F,L]
+</IfModule>
+
+# Charset UTF-8
+AddDefaultCharset UTF-8
+
+# Página inicial
+DirectoryIndex index.php

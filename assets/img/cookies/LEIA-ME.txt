@@ -1,0 +1,23 @@
+# Fotos dos Cookies
+
+Coloque suas fotos nesta pasta com os nomes exatos abaixo.
+
+| Arquivo | Cookie |
+|---------|--------|
+| tradicional-preto.jpg | Tradicional Preto |
+| tradicional-branco.jpg | Tradicional Branco |
+| brookie.jpg | Brookie |
+| nutella.jpg | Nutella |
+| ovomaltine.jpg | Ovomaltine |
+| pistache.jpg | Pistache |
+| kinder.jpg | Kinder |
+| negresco.jpg | Negresco |
+| red-velvet.jpg | Red Velvet |
+| banoffe.jpg | Banoffe |
+| pringles-nutella.jpg | Pringles c/ Nutella |
+
+Formatos aceitos: `.jpg`, `.jpeg`, `.png`, `.webp`
+
+Se preferir outro nome, altere o campo `imagem` na tabela `cookies` pelo DBeaver.
+
+Quando a foto não existir, o site exibe automaticamente um placeholder.

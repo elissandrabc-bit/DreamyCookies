@@ -1,0 +1,544 @@
+:root {
+    --dreamy-brown: #3d2314;
+    --dreamy-brown-dark: #2a180e;
+    --dreamy-brown-light: #5a3a26;
+    --dreamy-terracotta: #c4713b;
+    --dreamy-terracotta-light: #d4844f;
+    --dreamy-cream: #f5e6d3;
+    --dreamy-gold: #e8b84a;
+    --dreamy-text: #ffffff;
+    --dreamy-text-muted: rgba(255, 255, 255, 0.75);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans 3', sans-serif;
+    background-color: var(--dreamy-brown);
+    color: var(--dreamy-text);
+    min-height: 100vh;
+}
+
+/* Navbar */
+.dreamy-navbar {
+    background-color: var(--dreamy-brown-dark) !important;
+    border-bottom: 3px solid var(--dreamy-terracotta);
+    padding: 0.75rem 0;
+}
+
+.dreamy-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.35rem;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-nav {
+    height: 125px;
+    width: auto;
+    display: block;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--dreamy-terracotta-light) !important;
+}
+
+/* Onda decorativa no topo */
+.wave-top {
+    height: 24px;
+    background: linear-gradient(135deg, var(--dreamy-terracotta) 25%, transparent 25%) -20px 0,
+                linear-gradient(225deg, var(--dreamy-terracotta) 25%, transparent 25%) -20px 0,
+                linear-gradient(315deg, var(--dreamy-terracotta) 25%, transparent 25%),
+                linear-gradient(45deg, var(--dreamy-terracotta) 25%, transparent 25%);
+    background-size: 40px 40px;
+    background-color: var(--dreamy-brown);
+    opacity: 0.9;
+}
+
+/* Hero */
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    letter-spacing: 0.08em;
+    color: var(--dreamy-text);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.hero-subtitle {
+    color: var(--dreamy-text-muted);
+    font-size: 1.1rem;
+}
+
+/* Botões */
+.btn-dreamy {
+    background-color: var(--dreamy-terracotta);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    transition: background-color 0.2s, transform 0.15s;
+}
+
+.btn-dreamy:hover,
+.btn-dreamy:focus {
+    background-color: var(--dreamy-terracotta-light);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.bg-dreamy-accent {
+    background-color: var(--dreamy-terracotta) !important;
+}
+
+/* Inputs e campos de formulário — texto marrom ao digitar */
+.dreamy-input,
+.dreamy-input:focus,
+.form-control.dreamy-input,
+.form-select.dreamy-input {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid transparent;
+    color: var(--dreamy-brown-dark) !important;
+    -webkit-text-fill-color: var(--dreamy-brown-dark);
+}
+
+.dreamy-input::placeholder {
+    color: #6b4423;
+    opacity: 0.75;
+}
+
+.form-select.dreamy-input option {
+    color: var(--dreamy-brown-dark);
+    background-color: #fff;
+}
+
+.dreamy-input:focus,
+.form-select.dreamy-input:focus {
+    border-color: var(--dreamy-terracotta);
+    box-shadow: 0 0 0 0.2rem rgba(196, 113, 59, 0.25);
+    color: var(--dreamy-brown-dark) !important;
+}
+
+/* Cards de cookies */
+.cookie-card {
+    background-color: var(--dreamy-brown-dark);
+    border: 2px solid var(--dreamy-terracotta);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.cookie-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.cookie-img {
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--dreamy-terracotta);
+}
+
+.cookie-nome {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--dreamy-cream);
+    margin-bottom: 0.5rem;
+}
+
+.cookie-descricao {
+    font-size: 0.9rem;
+    color: var(--dreamy-text-muted);
+    line-height: 1.5;
+}
+
+.cookie-preco {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--dreamy-gold);
+}
+
+/* Formulários */
+.form-card {
+    --bs-card-color: #f5e6d3;
+    --bs-body-color: #f5e6d3;
+    background-color: var(--dreamy-brown-light);
+    border: 2px solid var(--dreamy-terracotta);
+    border-radius: 12px;
+    color: #f5e6d3;
+}
+
+.form-card .card-body {
+    color: #f5e6d3;
+}
+
+.form-card .label-dreamy,
+.form-card .form-label,
+.form-card label {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+    opacity: 1 !important;
+}
+
+.form-card .texto-creme,
+.form-card .small,
+.form-card p {
+    color: #ffffff !important;
+}
+
+.form-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--dreamy-cream);
+}
+
+.link-dreamy {
+    color: var(--dreamy-terracotta-light);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link-dreamy:hover {
+    color: var(--dreamy-gold);
+    text-decoration: underline;
+}
+
+/* Modal */
+.dreamy-modal {
+    background-color: var(--dreamy-brown-dark);
+    color: var(--dreamy-text);
+    border: 2px solid var(--dreamy-terracotta);
+}
+
+.dreamy-modal .modal-header {
+    border-bottom-color: var(--dreamy-terracotta);
+}
+
+/* Página Nossa História */
+.historia-card {
+    background-color: var(--dreamy-brown-dark);
+    border: 2px solid var(--dreamy-terracotta);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.historia-foto-wrap {
+    display: inline-block;
+    padding: 4px;
+    border: 3px solid var(--dreamy-terracotta);
+    border-radius: 50%;
+    background-color: var(--dreamy-brown);
+}
+
+.historia-foto {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.historia-criadora-nome {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--dreamy-cream);
+}
+
+.historia-criadora-cargo {
+    color: var(--dreamy-gold);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.historia-texto p {
+    color: var(--dreamy-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+}
+
+.historia-texto p:last-child {
+    margin-bottom: 0;
+}
+
+/* Área administrativa - lista de clientes */
+.admin-tabela-wrap {
+    background-color: rgba(255, 255, 255, 0.92);
+    border: 2px solid var(--dreamy-terracotta);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.admin-tabela {
+    --bs-table-bg: transparent;
+    --bs-table-striped-bg: rgba(61, 35, 20, 0.08);
+    --bs-table-hover-bg: rgba(196, 113, 59, 0.12);
+    color: var(--dreamy-brown-dark);
+    margin-bottom: 0;
+}
+
+.admin-tabela thead th {
+    color: var(--dreamy-brown);
+    border-bottom-color: var(--dreamy-terracotta);
+    font-family: 'Roboto Slab', serif;
+}
+
+.admin-tabela td,
+.admin-tabela th {
+    border-color: rgba(196, 113, 59, 0.35);
+    vertical-align: middle;
+    color: var(--dreamy-brown-dark);
+}
+
+.admin-tabela tbody td {
+    color: var(--dreamy-brown-dark);
+}
+
+.admin-link-wa {
+    color: var(--dreamy-terracotta);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.admin-link-wa:hover {
+    color: var(--dreamy-terracotta-light);
+    text-decoration: underline;
+}
+
+/* Carrinho de compras */
+.carrinho-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.carrinho-badge {
+    font-size: 0.7rem;
+    min-width: 1.25rem;
+}
+
+.carrinho-card {
+    background-color: var(--dreamy-brown-light);
+    border: 2px solid var(--dreamy-terracotta);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+}
+
+.carrinho-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(196, 113, 59, 0.35);
+}
+
+.carrinho-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.carrinho-item:first-child {
+    padding-top: 0;
+}
+
+.carrinho-item-img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--dreamy-terracotta);
+}
+
+.carrinho-item-nome {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dreamy-cream);
+    margin-bottom: 0.25rem;
+}
+
+.carrinho-item-preco-unit {
+    color: var(--dreamy-text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.carrinho-item-subtotal {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dreamy-gold);
+}
+
+.carrinho-qtd-input {
+    max-width: 70px;
+}
+
+.carrinho-resumo {
+    background-color: var(--dreamy-brown-dark);
+    border: 2px solid var(--dreamy-terracotta);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+}
+
+.carrinho-resumo-label {
+    color: var(--dreamy-text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.carrinho-resumo-total {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--dreamy-gold);
+}
+
+@media (max-width: 768px) {
+    .historia-card {
+        padding: 1.5rem;
+    }
+
+    .historia-foto {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* Footer */
+.dreamy-footer {
+    background-color: var(--dreamy-brown-dark);
+    border-top: 4px solid var(--dreamy-terracotta);
+    padding: 2.5rem 0 1.5rem;
+    margin-top: 4rem;
+    position: relative;
+}
+
+.dreamy-footer::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: 0;
+    width: 200px;
+    height: 60px;
+    background: var(--dreamy-terracotta);
+    border-radius: 100% 0 0 0;
+    opacity: 0.6;
+}
+
+.footer-info {
+    color: var(--dreamy-text-muted);
+    font-size: 0.95rem;
+}
+
+.footer-link {
+    color: var(--dreamy-gold);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-link:hover {
+    color: var(--dreamy-terracotta-light);
+    text-decoration: underline;
+}
+
+.footer-logo {
+    height: 160px;
+    width: auto;
+    max-width: 100%;
+}
+
+.footer-divider {
+    border-color: var(--dreamy-terracotta);
+    opacity: 0.4;
+    margin: 1.5rem 0 1rem;
+}
+
+.footer-copy {
+    color: var(--dreamy-text-muted);
+}
+
+.badge-desde {
+    background-color: var(--dreamy-terracotta);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 0.4em 0.8em;
+    letter-spacing: 0.05em;
+}
+
+/* WhatsApp flutuante */
+.whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 58px;
+    height: 58px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    z-index: 1050;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.whatsapp-float:hover {
+    color: #fff;
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+/* Alertas Bootstrap customizados */
+.alert-success {
+    background-color: rgba(40, 167, 69, 0.2);
+    border-color: #28a745;
+    color: #d4edda;
+}
+
+.alert-danger {
+    background-color: rgba(220, 53, 69, 0.2);
+    border-color: #dc3545;
+    color: #f8d7da;
+}
+
+.alert-warning {
+    background-color: rgba(255, 193, 7, 0.15);
+    border-color: #ffc107;
+    color: #fff3cd;
+}
+
+@media (max-width: 768px) {
+    .logo-nav {
+        height: 94px;
+    }
+
+    .footer-logo {
+        height: 110px;
+        width: auto;
+    }
+
+    .whatsapp-float {
+        bottom: 16px;
+        right: 16px;
+        width: 52px;
+        height: 52px;
+    }
+}

@@ -1,0 +1,9 @@
+# Foto da criadora
+
+Coloque a foto aqui com o nome:
+
+    criadora.jpg
+
+Formatos aceitos: .jpg, .jpeg, .png, .webp
+
+Se usar outro nome, altere o campo "criadora_foto" em config/historia.php

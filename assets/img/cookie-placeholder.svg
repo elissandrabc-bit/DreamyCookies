@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Cookie">
+  <rect width="400" height="300" fill="#2a180e"/>
+  <circle cx="200" cy="140" r="80" fill="#8B5A2B"/>
+  <circle cx="250" cy="95" r="28" fill="#2a180e"/>
+  <circle cx="170" cy="115" r="10" fill="#3d2314"/>
+  <circle cx="200" cy="105" r="8" fill="#3d2314"/>
+  <circle cx="225" cy="125" r="9" fill="#3d2314"/>
+  <circle cx="185" cy="145" r="8" fill="#3d2314"/>
+  <circle cx="215" cy="155" r="10" fill="#3d2314"/>
+  <circle cx="175" cy="165" r="7" fill="#3d2314"/>
+  <text x="200" y="260" text-anchor="middle" fill="#c4713b" font-family="Arial,sans-serif" font-size="16">Adicione a foto em assets/img/cookies/</text>
+</svg>

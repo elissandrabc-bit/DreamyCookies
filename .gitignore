@@ -1,0 +1,12 @@
+# Configuração local (copie os arquivos .example)
+config/database.php
+config/admin.php
+
+# Sistema / editor
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+
+# Pacotes de entrega
+*.zip
