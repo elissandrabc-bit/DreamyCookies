@@ -1,0 +1,11 @@
+{
+  "name": "dreamy-cookies-dashboard",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

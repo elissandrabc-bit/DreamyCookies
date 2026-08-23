@@ -47,6 +47,37 @@ CREATE TABLE IF NOT EXISTS cookie_categoria (
         REFERENCES categorias(id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
+-- Tabela 5: Pedidos
+CREATE TABLE IF NOT EXISTS pedidos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT NULL,
+    data_pedido DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('pendente', 'confirmado', 'entregue', 'cancelado') NOT NULL DEFAULT 'confirmado',
+    total DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
+    CONSTRAINT fk_pedidos_cliente FOREIGN KEY (cliente_id)
+        REFERENCES clientes(id) ON DELETE SET NULL ON UPDATE CASCADE,
+    CONSTRAINT chk_pedidos_total CHECK (total >= 0)
+) ENGINE=InnoDB;
+
+-- Tabela 6: Itens do pedido
+CREATE TABLE IF NOT EXISTS pedido_itens (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pedido_id INT NOT NULL,
+    cookie_id INT NOT NULL,
+    quantidade INT NOT NULL,
+    preco_unitario DECIMAL(10, 2) NOT NULL,
+    subtotal DECIMAL(10, 2) NOT NULL,
+    CONSTRAINT fk_pi_pedido FOREIGN KEY (pedido_id)
+        REFERENCES pedidos(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_pi_cookie FOREIGN KEY (cookie_id)
+        REFERENCES cookies(id) ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT chk_pi_quantidade CHECK (quantidade > 0),
+    CONSTRAINT chk_pi_preco CHECK (preco_unitario >= 0),
+    CONSTRAINT chk_pi_subtotal CHECK (subtotal >= 0)
+) ENGINE=InnoDB;
+
+-- Objetos avançados (views, procedures, triggers): database/avancado.sql
+
 -- ============================================================
 -- Dados iniciais
 -- ============================================================

@@ -1,12 +1,14 @@
-# Desabilitar listagem de diretórios (Sistemas Operacionais e Redes)
+# .htaccess para HOSPEDAGEM (raiz do htdocs)
+# Na hospedagem gratuita, renomeie para .htaccess ou copie o ErrorDocument abaixo.
+
+# Desabilitar listagem de diretórios
 Options -Indexes
 
 # Proteger arquivos sensíveis
-<FilesMatch "^(database\.(php|example\.php)|\.env)$">
+<FilesMatch "^(database\.(php|example\.php|hosting\.example\.php)|\.env)$">
     Require all denied
 </FilesMatch>
 
-# Bloquear acesso direto à pasta config
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteRule ^config/ - [F,L]
@@ -15,11 +17,8 @@ Options -Indexes
     RewriteRule ^database/ - [F,L]
 </IfModule>
 
-# Charset UTF-8
 AddDefaultCharset UTF-8
-
-# Página inicial
 DirectoryIndex index.php
 
-# Página de erro 404 personalizada
-ErrorDocument 404 /DreamyCookies/404.php
+# 404 na raiz (hospedagem — SEM /DreamyCookies/)
+ErrorDocument 404 /404.php

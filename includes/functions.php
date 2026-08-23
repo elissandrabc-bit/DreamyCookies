@@ -76,7 +76,7 @@ function buscarCategorias(PDO $pdo): array
 }
 
 /**
- * Filtra cookies por categoria (Tech Forge: filtro em array).
+ * Filtra cookies por categoria 
  *
  * @param array $cookies
  * @param int|null $categoriaId

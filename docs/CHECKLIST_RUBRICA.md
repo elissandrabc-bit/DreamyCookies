@@ -10,14 +10,14 @@ Use este documento na apresentação do projeto.
 - [x] Chaves estrangeiras em `cookie_categoria`
 - [x] Relacionamento N:N entre cookies e categorias
 - [x] Script SQL em `database/schema.sql`
-- [x] Conexão configurável para VM com IP fixo
+- [x] Conexão configurável em `config/database.php` (local: `127.0.0.1`)
 
 ## Sistemas Operacionais e Redes
 
 - [x] Listagem de diretórios desabilitada (`.htaccess`: `Options -Indexes`)
 - [x] Aplicação na porta 8080 (`docs/CONFIGURACAO_XAMPP.md`)
 - [x] DNS local configurável (`docs/CONFIGURACAO_DNS.md`)
-- [x] Banco em VM separada (`docs/CONFIGURACAO_VM_DBEAVER.md`)
+- [x] MySQL local no XAMPP (`127.0.0.1`; guia VM opcional em `docs/CONFIGURACAO_VM_DBEAVER.md`)
 
 ## Desenvolvimento Web Moderno
 

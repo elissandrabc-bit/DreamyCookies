@@ -22,7 +22,7 @@ try {
 } catch (PDOException $e) {
     $cookiesExibidos = [];
     $categorias = [];
-    $mensagem_erro = 'Não foi possível conectar ao banco de dados na VM (192.168.56.101). Verifique se o MySQL está ligado e se o usuário dreamy_user foi criado no phpMyAdmin da VM.';
+    $mensagem_erro = 'Não foi possível conectar ao banco de dados local. Verifique se o MySQL está ligado no XAMPP e se o banco dreamy_cookies foi importado no phpMyAdmin.';
 }
 
 renderizarPagina('home', compact(

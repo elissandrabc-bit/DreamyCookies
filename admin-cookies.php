@@ -5,12 +5,13 @@ require_once __DIR__ . '/includes/template.php';
 
 iniciarSessao();
 
-$titulo = 'Admin — Clientes';
-$paginaAdmin = 'admin-clientes.php';
-$paginaAdminAtiva = 'clientes';
+$titulo = 'Admin — Cookies';
+$paginaAdmin = 'admin-cookies.php';
+$paginaAdminAtiva = 'cookies';
 $mostrarLista = false;
-$clientes = [];
-$clienteEdicao = null;
+$cookies = [];
+$categorias = [];
+$cookieEdicao = null;
 $mensagem_erro = '';
 $mensagem_sucesso = consumirFlash('sucesso');
 $mensagem_erro = consumirFlash('erro');
@@ -28,11 +29,12 @@ if ($auth['logado']) {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $acao = $_POST['acao'] ?? '';
+            $categoriasIds = normalizarIdsCategorias($_POST);
 
             if ($acao === 'criar') {
-                $resultado = criarClienteAdmin($pdo, $_POST);
+                $resultado = criarCookie($pdo, $_POST, $categoriasIds);
                 redirecionarComFlash(
-                    'admin-clientes.php',
+                    'admin-cookies.php',
                     $resultado['sucesso'] ? 'sucesso' : 'erro',
                     $resultado['mensagem']
                 );
@@ -40,9 +42,9 @@ if ($auth['logado']) {
 
             if ($acao === 'atualizar') {
                 $id = (int) ($_POST['id'] ?? 0);
-                $resultado = atualizarCliente($pdo, $id, $_POST);
+                $resultado = atualizarCookie($pdo, $id, $_POST, $categoriasIds);
                 redirecionarComFlash(
-                    'admin-clientes.php',
+                    'admin-cookies.php',
                     $resultado['sucesso'] ? 'sucesso' : 'erro',
                     $resultado['mensagem']
                 );
@@ -50,34 +52,36 @@ if ($auth['logado']) {
 
             if ($acao === 'excluir') {
                 $id = (int) ($_POST['id'] ?? 0);
-                $resultado = excluirCliente($pdo, $id);
+                $resultado = excluirCookie($pdo, $id);
                 redirecionarComFlash(
-                    'admin-clientes.php',
+                    'admin-cookies.php',
                     $resultado['sucesso'] ? 'sucesso' : 'erro',
                     $resultado['mensagem']
                 );
             }
         }
 
-        $clientes = buscarClientes($pdo);
+        $cookies = buscarCookiesAdmin($pdo);
+        $categorias = buscarCategorias($pdo);
 
         $editarId = isset($_GET['editar']) ? (int) $_GET['editar'] : 0;
         if ($editarId > 0) {
-            $clienteEdicao = buscarClientePorId($pdo, $editarId);
+            $cookieEdicao = buscarCookieAdminPorId($pdo, $editarId);
         }
     } catch (PDOException $e) {
-        $mensagem_erro = 'Não foi possível carregar os clientes. Verifique a conexão com o banco.';
+        $mensagem_erro = 'Não foi possível carregar os cookies.';
         $mostrarLista = false;
     }
 }
 
-renderizarPagina('admin-clientes', compact(
+renderizarPagina('admin-cookies', compact(
     'titulo',
     'paginaAdmin',
     'paginaAdminAtiva',
     'mensagem_erro',
     'mensagem_sucesso',
-    'clientes',
-    'clienteEdicao',
+    'cookies',
+    'categorias',
+    'cookieEdicao',
     'mostrarLista'
 ));

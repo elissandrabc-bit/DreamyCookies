@@ -10,3 +10,6 @@ Desktop.ini
 
 # Pacotes de entrega
 *.zip
+
+# Node / TypeScript
+node_modules/

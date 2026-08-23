@@ -1,0 +1,30 @@
+Dreamy Cookies — Entrega Sprint 1
+=================================
+
+LINKS (preencher na rubrica)
+  GitHub: https://github.com/elissandrabc-bit/DreamyCookies
+  Site local: http://localhost:8080/DreamyCookies/
+  Dashboard: http://localhost:8080/DreamyCookies/dashboard.php
+  API: http://localhost:8080/DreamyCookies/api/dashboard.php
+
+INSTALAÇÃO RÁPIDA (XAMPP)
+  1. Copie a pasta para C:\xampp\htdocs\DreamyCookies
+  2. Apache porta 8080 (docs/CONFIGURACAO_XAMPP.md)
+  3. MySQL ligado no XAMPP
+  4. copy config\database.example.php config\database.php
+  5. copy config\admin.example.php config\admin.php
+  6. Importe database\dreamy_cookies_export.sql no phpMyAdmin
+  7. Importe database\avancado.sql (pedidos, views, procedures)
+  8. Acesse http://localhost:8080/DreamyCookies/
+
+ADMIN
+  URL: admin-clientes.php | admin-cookies.php | admin-categorias.php
+  Senha padrão em config/admin.example.php (dreamy2025)
+
+TYPESCRIPT (dashboard já compilada em assets/js/)
+  Se editar src/: npm install && npm run build
+
+DOCUMENTAÇÃO
+  docs/CHECKLIST_RUBRICA_NOVA.md
+  docs/novarubrica.pdf
+  database/DER.md

@@ -1,16 +1,18 @@
 <?php
+/**
+ * Exemplo para HOSPEDAGEM GRATUITA (InfinityFree, AwardSpace, etc.)
+ * Copie para config/database.php e preencha com os dados do painel MySQL.
+ *
+ * Na hospedagem, DB_HOST costuma ser algo como:
+ *   sql123.infinityfree.com
+ * (NÃO use o IP da VM — ela não é acessível pela internet)
+ */
 
-
-define('DB_HOST', '127.0.0.1'); // MySQL local (XAMPP no mesmo PC)
+define('DB_HOST', 'sql000.infinityfree.com');
 define('DB_PORT', '3306');
-define('DB_NAME', 'dreamy_cookies');
-define('DB_USER', 'root');
-define('DB_PASS', ''); // padrão XAMPP; ajuste se tiver senha no root
-
-// VM remota (opcional):
-// define('DB_HOST', '192.168.56.101');
-// define('DB_USER', 'dreamy_user');
-// define('DB_PASS', 'dreamy123');
+define('DB_NAME', 'if0_00000000_dreamy');
+define('DB_USER', 'if0_00000000');
+define('DB_PASS', 'coloque_a_senha_do_painel');
 define('DB_CHARSET', 'utf8mb4');
 
 function obterConexao(): PDO

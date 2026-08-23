@@ -19,7 +19,7 @@ Site comercial em PHP para venda de cookies artesanais, desenvolvido para o proj
 | Disciplina | Requisito |
 |------------|-----------|
 | Modelagem e BD | DER, 4 tabelas, PK/FK, relação N:N |
-| SO e Redes | Porta 8080, DNS local, listagem desabilitada, BD em VM separada |
+| SO e Redes | Porta 8080, DNS local, listagem desabilitada, MySQL local (XAMPP) |
 | Web Moderno | PHP, templates, Bootstrap (Navbar, Cards, Modal, Alert), foreach/while/if |
 | Tech Forge | Arrays estruturados, funções modulares, filtros, validações |
 
@@ -52,12 +52,13 @@ copy config\database.example.php config\database.php
 copy config\admin.example.php config\admin.php
 ```
 
-Ajuste o IP da VM em `config/database.php`.
+Em `config/database.php`, use `127.0.0.1` com usuário `root` (MySQL local do XAMPP).
 
-### 2. Banco de dados (VM)
+### 2. Banco de dados (local)
 
-1. Importe `database/dreamy_cookies_export.sql` no phpMyAdmin da VM
-2. Execute `database/setup_usuario.sql` e `database/setup_vm_remoto.sql`
+1. Ligue o **MySQL** no XAMPP
+2. Abra o phpMyAdmin: `http://localhost/phpMyAdmin/`
+3. Importe `database/dreamy_cookies_export.sql`
 
 ### 3. XAMPP
 
@@ -65,6 +66,21 @@ Ajuste o IP da VM em `config/database.php`.
 2. Apache na porta **8080** — veja `docs/CONFIGURACAO_XAMPP.md`
 3. DNS local — veja `docs/CONFIGURACAO_DNS.md`
 4. Acesse: `http://localhost:8080/DreamyCookies/`
+
+### 4. API JSON (dashboard TypeScript)
+
+| Endpoint | URL |
+|----------|-----|
+| Índice | `http://localhost:8080/DreamyCookies/api/index.php` |
+| Dashboard | `http://localhost:8080/DreamyCookies/api/dashboard.php` |
+| Pedidos | `http://localhost:8080/DreamyCookies/api/pedidos.php?pagina=1` |
+| Cookies | `http://localhost:8080/DreamyCookies/api/cookies.php` |
+
+### 5. Dashboard TypeScript
+
+1. Instale dependências: `npm install`
+2. Compile: `npm run build` (gera `assets/js/*.js`)
+3. Acesse: `http://localhost:8080/DreamyCookies/dashboard.php`
 
 ## Documentação
 

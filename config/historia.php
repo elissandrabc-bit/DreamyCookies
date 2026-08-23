@@ -1,8 +1,5 @@
 <?php
-/**
- * Conteúdo da página "Nossa História".
- * Edite este arquivo com o seu texto e o nome da criadora.
- */
+
 
 return [
     'titulo'         => 'Como surgiu a Dreamy Cookies',

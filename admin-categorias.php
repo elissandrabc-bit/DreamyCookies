@@ -5,12 +5,12 @@ require_once __DIR__ . '/includes/template.php';
 
 iniciarSessao();
 
-$titulo = 'Admin — Clientes';
-$paginaAdmin = 'admin-clientes.php';
-$paginaAdminAtiva = 'clientes';
+$titulo = 'Admin — Categorias';
+$paginaAdmin = 'admin-categorias.php';
+$paginaAdminAtiva = 'categorias';
 $mostrarLista = false;
-$clientes = [];
-$clienteEdicao = null;
+$categorias = [];
+$categoriaEdicao = null;
 $mensagem_erro = '';
 $mensagem_sucesso = consumirFlash('sucesso');
 $mensagem_erro = consumirFlash('erro');
@@ -30,9 +30,9 @@ if ($auth['logado']) {
             $acao = $_POST['acao'] ?? '';
 
             if ($acao === 'criar') {
-                $resultado = criarClienteAdmin($pdo, $_POST);
+                $resultado = criarCategoria($pdo, $_POST);
                 redirecionarComFlash(
-                    'admin-clientes.php',
+                    'admin-categorias.php',
                     $resultado['sucesso'] ? 'sucesso' : 'erro',
                     $resultado['mensagem']
                 );
@@ -40,9 +40,9 @@ if ($auth['logado']) {
 
             if ($acao === 'atualizar') {
                 $id = (int) ($_POST['id'] ?? 0);
-                $resultado = atualizarCliente($pdo, $id, $_POST);
+                $resultado = atualizarCategoria($pdo, $id, $_POST);
                 redirecionarComFlash(
-                    'admin-clientes.php',
+                    'admin-categorias.php',
                     $resultado['sucesso'] ? 'sucesso' : 'erro',
                     $resultado['mensagem']
                 );
@@ -50,34 +50,34 @@ if ($auth['logado']) {
 
             if ($acao === 'excluir') {
                 $id = (int) ($_POST['id'] ?? 0);
-                $resultado = excluirCliente($pdo, $id);
+                $resultado = excluirCategoria($pdo, $id);
                 redirecionarComFlash(
-                    'admin-clientes.php',
+                    'admin-categorias.php',
                     $resultado['sucesso'] ? 'sucesso' : 'erro',
                     $resultado['mensagem']
                 );
             }
         }
 
-        $clientes = buscarClientes($pdo);
+        $categorias = buscarCategorias($pdo);
 
         $editarId = isset($_GET['editar']) ? (int) $_GET['editar'] : 0;
         if ($editarId > 0) {
-            $clienteEdicao = buscarClientePorId($pdo, $editarId);
+            $categoriaEdicao = buscarCategoriaPorId($pdo, $editarId);
         }
     } catch (PDOException $e) {
-        $mensagem_erro = 'Não foi possível carregar os clientes. Verifique a conexão com o banco.';
+        $mensagem_erro = 'Não foi possível carregar as categorias.';
         $mostrarLista = false;
     }
 }
 
-renderizarPagina('admin-clientes', compact(
+renderizarPagina('admin-categorias', compact(
     'titulo',
     'paginaAdmin',
     'paginaAdminAtiva',
     'mensagem_erro',
     'mensagem_sucesso',
-    'clientes',
-    'clienteEdicao',
+    'categorias',
+    'categoriaEdicao',
     'mostrarLista'
 ));
