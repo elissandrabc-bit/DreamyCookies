@@ -28,9 +28,6 @@
                         <a class="nav-link" href="historia.php">Nossa História</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.php">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="admin-clientes.php">Admin</a>
                     </li>
                     <li class="nav-item">

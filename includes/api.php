@@ -183,3 +183,24 @@ function apiObterCookies(PDO $pdo): array
         ];
     }, $cookies);
 }
+
+/**
+ * Todas as categorias cadastradas.
+ *
+ * @param PDO $pdo
+ * @return array<int, array<string, mixed>>
+ */
+function apiObterCategorias(PDO $pdo): array
+{
+    require_once __DIR__ . '/functions.php';
+
+    $categorias = buscarCategorias($pdo);
+
+    return array_map(static function (array $categoria): array {
+        return [
+            'id'        => (int) $categoria['id'],
+            'nome'      => (string) $categoria['nome'],
+            'descricao' => $categoria['descricao'] !== null ? (string) $categoria['descricao'] : null,
+        ];
+    }, $categorias);
+}

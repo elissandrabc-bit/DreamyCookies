@@ -29,5 +29,10 @@ apiEnviarJson([
             'url'         => 'api/cookies.php',
             'descricao'   => 'Cardápio de cookies ativos',
         ],
+        [
+            'metodo'      => 'GET',
+            'url'         => 'api/categorias.php',
+            'descricao'   => 'Lista todas as categorias',
+        ],
     ],
 ]);

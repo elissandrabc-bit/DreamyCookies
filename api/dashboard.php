@@ -9,6 +9,7 @@ require_once __DIR__ . '/../includes/api.php';
 
 apiConfigurarCors();
 apiExigirGet();
+apiExigirAdmin();
 
 try {
     $pdo = obterConexao();

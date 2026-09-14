@@ -51,6 +51,18 @@ function apiConfigurarCors(): void
 }
 
 /**
+ * Exige sessão de administrador para endpoints internos.
+ */
+function apiExigirAdmin(): void
+{
+    require_once __DIR__ . '/functions.php';
+
+    if (!adminLogado()) {
+        apiEnviarErro('Acesso restrito ao administrador.', 401);
+    }
+}
+
+/**
  * Garante que o endpoint aceita apenas GET.
  */
 function apiExigirGet(): void

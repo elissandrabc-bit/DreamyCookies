@@ -13,7 +13,8 @@
                href="admin-categorias.php">Categorias</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link admin-nav-link" href="dashboard.php">Dashboard</a>
+            <a class="nav-link admin-nav-link <?= ($paginaAdminAtiva ?? '') === 'dashboard' ? 'active' : '' ?>"
+               href="dashboard.php">Dashboard</a>
         </li>
     </ul>
     <form method="post" class="text-end mt-2">

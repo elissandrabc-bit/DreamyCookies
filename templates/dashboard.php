@@ -1,3 +1,6 @@
+<?php require __DIR__ . '/partials/admin-login.php'; ?>
+
+<?php if ($mostrarLista): ?>
 <section class="dashboard-hero text-center mb-4">
     <h1 class="hero-title">Dashboard</h1>
     <p class="hero-subtitle">Indicadores de vendas — Banco → PHP → JSON → TypeScript → DOM</p>
@@ -105,3 +108,4 @@
 </div>
 
 <script type="module" src="assets/js/dashboard.js?v=1"></script>
+<?php endif; ?>
